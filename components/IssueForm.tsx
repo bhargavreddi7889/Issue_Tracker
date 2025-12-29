@@ -37,10 +37,10 @@ export default function IssueForm({ onIssueCreated }: IssueFormProps) {
     snapshot.forEach((doc) => {
       const issue = doc.data();
       const issueTitleLower = issue.title.toLowerCase();
-      const titleWords = titleLower.split(/\s+/).filter((w) => w.length > 3);
-      const issueWords = issueTitleLower.split(/\s+/).filter((w) => w.length > 3);
-      const commonWords = titleWords.filter((word) =>
-        issueWords.some((iWord) => iWord.includes(word) || word.includes(iWord))
+      const titleWords = titleLower.split(/\s+/).filter((w: string) => w.length > 3);
+      const issueWords = issueTitleLower.split(/\s+/).filter((w: string) => w.length > 3);
+      const commonWords = titleWords.filter((word: string) =>
+        issueWords.some((iWord: string) => iWord.includes(word) || word.includes(iWord))
       );
 
       if (commonWords.length > 0) {
